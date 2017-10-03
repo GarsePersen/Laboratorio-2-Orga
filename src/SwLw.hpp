@@ -16,7 +16,7 @@ class SwLw: public Instruccion{
     public:
         SwLw(NombreInstruccion nombre, size_t r1, int offset, size_t r2);
         SwLw(string nombre, string r1, string offset, string r2);
-        void run(Estado &estado, LineaControl &lineaControl);
+        void run(Pipeline &pipeline);
 };
 
 #endif

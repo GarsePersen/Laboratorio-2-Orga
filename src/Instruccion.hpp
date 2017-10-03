@@ -6,6 +6,7 @@ using namespace std;
 
 #include "LineaControl.hpp"
 #include "Estado.hpp"
+#include "Pipeline.hpp"
 
 /* Enum con los tipos de instrucciones que permite el programa */
 enum class NombreInstruccion{
@@ -34,7 +35,7 @@ class Instruccion{
         Instruccion(NombreInstruccion nombre);
         Instruccion(string nombre);
 
-        virtual void run(Estado &estado, LineaControl &lineaControl) = 0;
+        virtual void run(Pipeline &pipeline) = 0;
 
         /*Retorna una reresentacion en string de la instruccion*/
         string toString() const;

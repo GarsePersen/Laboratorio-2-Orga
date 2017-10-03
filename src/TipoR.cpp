@@ -20,7 +20,10 @@ TipoR::TipoR(string nombre, string r1, string r2, string r3): Instruccion(nombre
  * junto con el programCounter
  * Entrada: Clase Estado, Clase LineaControl
  * Salida: Void*/
-void TipoR::run(Estado &estado, LineaControl &lineaControl){
+void TipoR::run(Pipeline &pipeline){
+    
+
+/*
     int valorR2 = estado.obtenerValor(this->r2);
     int valorR3 = estado.obtenerValor(this->r3);
     int result;
@@ -60,5 +63,6 @@ void TipoR::run(Estado &estado, LineaControl &lineaControl){
     
     estado.programCounter(estado.programCounter() + 1);
     estado.modificarRegistro(this->r1, result);
+*/
 }
 

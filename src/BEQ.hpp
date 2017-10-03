@@ -12,7 +12,7 @@ class BEQ: public Instruccion{
        int r1, r2;
     public:
         BEQ(size_t pos, int r1, int r2);
-        void run(Estado &estado, LineaControl &lineaControl);
+        void run(Pipeline &pipeline);
 };
 
 #endif 

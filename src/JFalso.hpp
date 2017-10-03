@@ -11,7 +11,7 @@ class JFalso: public InstruccionFalsa{
         string nombreLabel;
     public:
         JFalso(string nombreLabel);
-        void run(Estado &estado, LineaControl &lineaControl);
+        void run(Pipeline &pipeline);
         Instruccion *getReal(size_t pos);
         string getLabel();
 };

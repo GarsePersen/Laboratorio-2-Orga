@@ -22,8 +22,8 @@ SwLw::SwLw(string nombre, string r1, string offset, string r2): Instruccion(nomb
  * Entrada: Clase Estado, Clase LineaControl
  * Salida: Void
  * */
-void SwLw::run(Estado &estado, LineaControl &lineaControl){
-    int result;
+void SwLw::run(Pipeline &pipeline){
+/*    int result;
     switch(this->nombre){
         case NombreInstruccion::Lw:
 	    result = estado.obtenerValor(this->r2);
@@ -57,4 +57,5 @@ void SwLw::run(Estado &estado, LineaControl &lineaControl){
             throw logic_error("La instruccion no corresponde a un Save/Load word");
     }
     estado.programCounter(estado.programCounter() + 1);
+*/
 }

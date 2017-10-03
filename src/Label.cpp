@@ -12,7 +12,7 @@ Label::Label(string nombre): Instruccion(NombreInstruccion::Label){
 /* Funcion que ejecuta la clase Label, indica de un error ya que no debiese pasar por aqui
  * Entrada: Clase Estado, clase LineaControl
  * Salida: Void */
-void Label::run(Estado &estado, LineaControl &lineaControl){
+void Label::run(Pipeline &pipeline){
     throw logic_error("Error, label no se puede ejecutar");
 
 }

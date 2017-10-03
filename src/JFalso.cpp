@@ -13,7 +13,7 @@ JFalso::JFalso(string nombreLabel): InstruccionFalsa(NombreInstruccion::J){
 /* Funcion que ejecuta el JFalso. Solo notifica de un error ya que no debiese pasar por aqui
  * Entrada: Clase Estado, clase LineaControl
  * Salida: Void */
-void JFalso::run(Estado &estado, LineaControl &lineaControl){
+void JFalso::run(Pipeline &pipeline){
     throw logic_error("Error, j falso no se puede ejecutar");
 }
 

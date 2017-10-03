@@ -11,7 +11,7 @@ class J: public Instruccion{
         size_t pos;
     public:
         J(size_t pos);
-        void run(Estado &estado, LineaControl &lineaControl);
+        void run(Pipeline &pipeline);
 };
 
 #endif 

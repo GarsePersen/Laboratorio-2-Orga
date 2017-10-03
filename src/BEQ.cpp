@@ -13,8 +13,8 @@ BEQ::BEQ(size_t pos, int r1, int r2): Instruccion(NombreInstruccion::Beq){
  * Entrada: Clase Estado, clase LineaControl
  * Salida: Void
  * */
-void BEQ::run(Estado &estado, LineaControl &lineaControl){
-    int valorR1 = estado.obtenerValor(this->r1);
+void BEQ::run(Pipeline &pipeline){
+/*    int valorR1 = estado.obtenerValor(this->r1);
     int valorR2 = estado.obtenerValor(this->r2);
     if(valorR1 == valorR2){
     	estado.programCounter(this->pos);
@@ -31,4 +31,5 @@ void BEQ::run(Estado &estado, LineaControl &lineaControl){
     lineaControl.modificarLinea(7, 0);
     lineaControl.modificarLinea(8, 0);
     lineaControl.modificarLinea(9, 0);
+*/
 }

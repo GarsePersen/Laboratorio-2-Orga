@@ -23,7 +23,7 @@ BeqFalso::BeqFalso(string nombreLabel, string r1, string r2): InstruccionFalsa(N
 /* Funcion que ejecuta el BeqFalso, indica un error ya que no debiese pasar por aqui 
  * Entrada: Clase Estado, clase LineaControl
  * Salida: Vacio*/
-void BeqFalso::run(Estado &estado, LineaControl &lineaControl){
+void BeqFalso::run(Pipeline &pipeline){
     throw logic_error("Error, Beq falso no se puede ejecutar");
 }
 

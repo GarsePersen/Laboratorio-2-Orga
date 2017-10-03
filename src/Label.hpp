@@ -11,7 +11,7 @@ class Label: public Instruccion{
        string nombre; 
     public:
         Label(string nombre);
-        void run(Estado &estado, LineaControl &lineaControl);
+        void run(Pipeline &pipeline);
         string getLabel() const;
 };
 

@@ -16,7 +16,7 @@ class TipoInmediato: public Instruccion{
     public:
         TipoInmediato(NombreInstruccion nombre, size_t r1, size_t r2, int valor);
         TipoInmediato(string nombre, string r1, string r2, string valor);
-        void run(Estado &estado, LineaControl &lineaControl);
+        void run(Pipeline &pipeline);
 };
 
 #endif

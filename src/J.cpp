@@ -9,8 +9,8 @@ J::J(size_t pos): Instruccion(NombreInstruccion::J){
  * Entrada: Clase Estado, Clase LineaControl
  * Salida: Void
  * */
-void J::run(Estado &estado, LineaControl &lineaControl){
-    estado.programCounter(this->pos);
+void J::run(Pipeline &pipeline){
+/*    estado.programCounter(this->pos);
     lineaControl.modificarLinea(0, -1);
     lineaControl.modificarLinea(1, 1);
     lineaControl.modificarLinea(2, 0);
@@ -21,4 +21,5 @@ void J::run(Estado &estado, LineaControl &lineaControl){
     lineaControl.modificarLinea(7, 0);
     lineaControl.modificarLinea(8, -1);
     lineaControl.modificarLinea(9, 0);
+*/
 }

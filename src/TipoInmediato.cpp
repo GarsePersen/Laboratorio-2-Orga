@@ -20,8 +20,11 @@ TipoInmediato::TipoInmediato(string nombre, string r1, string r2, string valor):
 /* Funcion que ejecuta las instrucciones Inmediate. Modifica las lineas de control, los registros y el programCounter
  * Entrada: Clase Estado, Clase LineaControl
  * Salida: Void*/
-void TipoInmediato::run(Estado &estado, LineaControl &lineaControl){
-    int valorR2 = estado.obtenerValor(this->r2);
+void TipoInmediato::run(Pipeline &pipeline){
+
+    
+/*
+    int valorR2 = 0;
     int result;
     
     switch(this->nombre){
@@ -48,5 +51,8 @@ void TipoInmediato::run(Estado &estado, LineaControl &lineaControl){
     
     estado.programCounter(estado.programCounter() + 1);
     estado.modificarRegistro(this->r1, result);
+*/
+
 }
+
 

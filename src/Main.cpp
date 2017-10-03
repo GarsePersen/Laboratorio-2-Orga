@@ -6,6 +6,7 @@ using namespace std;
 
 #include "Instruccion.hpp"
 #include "LineaControl.hpp"
+#include "Pipeline.hpp"
 #include "Estado.hpp"
 #include "TipoInmediato.hpp"
 #include "parser/sintactico.tab.h"
@@ -34,14 +35,13 @@ int main(int argc, char **argv){
 int myMain(){
     Archivo archivo;
     Estado estado;
+    Pipeline pipeline;
     string nombreArchivoEntradaMips;
     string nombreArchivoSalida;
     string nombreArchivoEntradaLineas;
     //Se piden los archivos de entrada y salida al usuario
     cout << "Ingrese el nombre del archivo con las instrucciones mips: ";
     cin >> nombreArchivoEntradaMips;
-    cout << "Ingrese el nombre del archivo con las lineas de control: ";
-    cin >> nombreArchivoEntradaLineas;
     cout << "Ingrese el nombre del archivo de salida: ";
     cin >> nombreArchivoSalida; 
     //Se llama a funcion que parsea el archivo de entrada
@@ -54,14 +54,6 @@ int myMain(){
     }
     //Se crea vector que contiene las instrucciones del programa
     vector<Instruccion*> programa = getInstrucciones();
-    //Se crea vector con las lineas de control de la entrada
-    vector<int> lineaControlEntrada;
-    try{
-	lineaControlEntrada = archivo.archivoEntrada(nombreArchivoEntradaLineas);
-    }catch(logic_error e){
-        cerr << "Error: " << e.what() << endl;
-	return -1;
-    }
     //Se crea vector que contendra las lineas de control de la salida
     vector<string> lineaControlSalida;
     //Se transforman los labels del archivo de entrada
@@ -78,49 +70,8 @@ int myMain(){
 	    //Se verifica que linea es la que se tiene que ejecutar
 	    auto i = programa.at(estado.programCounter());
 	    //Se ejecuta la linea
-            i->run(estado, lineaControl);
-            //Se crean variables que ayudan a comparar las lineas de control
-	    int iAux = 0;
-	    int linea = 0;
-	    //Se recorren las lineas de control de la entrada
-	    for(size_t i = 0; i < lineaControlEntrada.size(); i++){
-		    //Se vericia si se debe pasar a otra linea
-		    if((i%10 == 0) && (i != 0)){
-			    iAux = 0;
-			    linea = linea + 1;
-		    }
-		    //Se verifica que la linea y el programCounter sean iguales, ademas de que iAux no sea seis, lo que
-		    //corresponde al segundo numero del ALUOp 
-		    if((linea == programCounterActual) && (iAux!=6)){
-			    //Se verifica si es el primer numero del ALUOp
-			    if((i%5 == 0) && (i != 0) && (i%10 != 0)){
-				//Se verifica si las lineas de control del ALUOp son iguales
-                                if((lineaControl.linea[iAux] == lineaControlEntrada[i]) and (lineaControl.linea[iAux+1] == lineaControlEntrada[i+1])){
-                                    lineaControlSalida.push_back("-");
-				}else{
-				    estadoLinea = "Error  ";
-				    lineaControlSalida.push_back("A");
-				    lineaControlSalida.push_back(to_string(lineaControlEntrada[i]));
-				    lineaControlSalida.push_back(to_string(lineaControlEntrada[i+1]));
-				}
-		            //Si no es el ALUOp
-			    }else{
-			        if(lineaControl.linea[iAux] == -1){
-                                    lineaControlSalida.push_back("-");
-			        }else if(lineaControlEntrada[i] == lineaControl.linea[iAux]){
-                                    lineaControlSalida.push_back("-");
-			        }else{
-			            estadoLinea = "Error  ";
-				    lineaControlSalida.push_back(to_string(lineaControlEntrada[i]));
-			        }
-			    }
-		    }
-		    iAux++;
-	    }
-	    //Se agrega el estado de la linea y un separador que ayuda a escribir en el archivo despues
-	    lineaControlSalida.push_back(estadoLinea);
-	    lineaControlSalida.push_back("|");
-	}
+            i->run(pipeline);
+        }
     //Catch del error, significa que termino el programa
     }catch(logic_error e){
         cout << "El programa ha finalizado exitosamente" << endl;

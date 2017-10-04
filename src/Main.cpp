@@ -69,7 +69,7 @@ int myMain(){
             int programCounterActual = estado.programCounter();
             //Se verifica que linea es la que se tiene que ejecutar
             auto i = programa.at(estado.programCounter());
-            //Se ejecuta la linea
+	    //Se ejecuta la linea
             i->run(pipeline);
 
             estado.programCounter(programCounterActual+1);

@@ -19,6 +19,7 @@ enum class NombreInstruccion{
     Div,
     Lw,
     Sw,
+    PasoIf,
     Label
 };
 

@@ -24,7 +24,7 @@ Instruccion::Instruccion(NombreInstruccion nombre){
 Instruccion::Instruccion(string nombre){
     transform(nombre.begin(), nombre.end(), nombre.begin(), [](char c){ return tolower(c); });
     if(nombre == "addi"){
-        this->nombre = NombreInstruccion::Addi;
+        this->nombre = NombreInstruccion::PasoIf;
     }else if(nombre == "subi"){
         this->nombre = NombreInstruccion::Subi;
     }else if(nombre == "label"){

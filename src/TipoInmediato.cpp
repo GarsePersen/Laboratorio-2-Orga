@@ -22,7 +22,7 @@ TipoInmediato::TipoInmediato(string nombre, string r1, string r2, string valor):
  * Salida: Void*/
 void TipoInmediato::run(Pipeline &pipeline){
 
-    
+    cout << pipeline.obtenerCiclo();
 /*
     int valorR2 = 0;
     int result;

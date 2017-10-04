@@ -71,6 +71,7 @@
     #include <vector>
     #include "lexico.h"
     #include "../TipoInmediato.hpp"
+    #include "../PasoIf.hpp"
     #include "../Instruccion.hpp"
     #include "../Label.hpp"
     #include "../JFalso.hpp"
@@ -1499,6 +1500,11 @@ void yyerror(char *s) {
 	exit(1);
 }
 
+void crearPasoIf(){
+    Instruccion *inst = new PasoIf(readed.at(0), readed.at(1), readed.at(2, readed.at(4)));
+    instrucciones.push_back(inst);
+    readed.clear();
+}
 
 void crearBeq(){
     Instruccion *inst = new BeqFalso(readed.at(3), readed.at(1), readed.at(2));

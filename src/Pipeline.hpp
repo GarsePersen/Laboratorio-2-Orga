@@ -5,9 +5,13 @@
 using namespace std;
 
 class Pipeline{
+    private:
+        int ciclo;
     public:
+	Pipeline();
+	int obtenerCiclo();
+	void modificarCiclo(int valor);
         void comprobarHazard(int registro, int registro2);
-
 };
 
 

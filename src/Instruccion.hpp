@@ -1,6 +1,5 @@
 #ifndef _H_INSTRUCCION_
 #define _H_INSTRUCCION_
-
 #include <string>
 using namespace std;
 

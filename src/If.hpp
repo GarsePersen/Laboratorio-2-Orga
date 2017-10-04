@@ -8,7 +8,7 @@ class If: public Instruccion{
     public:
         If(NombreInstruccion nombre);
 
-	void run(Pipeline &pipeline);
+	    void run(Pipeline &pipeline);
 };
 
 

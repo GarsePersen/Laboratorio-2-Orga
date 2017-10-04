@@ -1,17 +1,17 @@
 #include <stdexcept>
 
-#include "If.hpp"
+#include "PasoIf.hpp"
 
 
 using namespace std;
 
 
-If::If(NombreInstruccion nombre): Instruccion(nombre){
+PasoIf::PasoIf(NombreInstruccion nombre): Instruccion(nombre){
     
 
 }
 
-void If::run(Pipeline &pipeline){
+void PasoIf::run(Pipeline &pipeline){
 
     int result = 0;
     int valorR2 = 0;
@@ -23,6 +23,7 @@ void If::run(Pipeline &pipeline){
             result = valorR2;
             break;
         default:
-            throw logic_error("La instruccion no corresponde a un TipoInmediato");
+            throw logic_error("La instruccion no se identifica en el paso IF");
     }
+
 }

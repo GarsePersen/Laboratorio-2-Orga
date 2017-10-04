@@ -64,13 +64,16 @@ int myMain(){
         bool end_program = false;
         while(!end_program){
             //Variable que guarda el estado de la linea
-	    string estadoLinea = "Correcto";
+            string estadoLinea = "Correcto";
             //Se obtiene el valor del programCounter
-	    int programCounterActual = estado.programCounter();
-	    //Se verifica que linea es la que se tiene que ejecutar
-	    auto i = programa.at(estado.programCounter());
-	    //Se ejecuta la linea
+            int programCounterActual = estado.programCounter();
+            //Se verifica que linea es la que se tiene que ejecutar
+            auto i = programa.at(estado.programCounter());
+            //Se ejecuta la linea
             i->run(pipeline);
+
+            estado.programCounter(programCounterActual+1);
+
         }
     //Catch del error, significa que termino el programa
     }catch(logic_error e){

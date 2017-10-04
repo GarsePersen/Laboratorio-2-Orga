@@ -1,8 +1,8 @@
 FLAGS=-Wall -g -std=c++11
 
-all: Pipeline.o If.o InstruccionFalsa.o BeqFalso.o BEQ.o JFalso.o J.o Label.o SwLw.o TipoR.o TipoInmediato.o LineaControl.o Estado.o Instruccion.o Archivo.o Main.cpp 
+all: Pipeline.o PasoIf.o InstruccionFalsa.o BeqFalso.o BEQ.o JFalso.o J.o Label.o SwLw.o TipoR.o TipoInmediato.o LineaControl.o Estado.o Instruccion.o Archivo.o Main.cpp 
 	make -C parser
-	g++ $(FLAGS) Main.cpp parser/lexer.o parser/parser.o Pipeline.o If.o Instruccion.o Archivo.o LineaControl.o Estado.o TipoInmediato.o SwLw.o TipoR.o Label.o BeqFalso.o JFalso.o BEQ.o J.o InstruccionFalsa.o -o lab1
+	g++ $(FLAGS) Main.cpp parser/lexer.o parser/parser.o Pipeline.o PasoIf.o Instruccion.o Archivo.o LineaControl.o Estado.o TipoInmediato.o SwLw.o TipoR.o Label.o BeqFalso.o JFalso.o BEQ.o J.o InstruccionFalsa.o -o lab1
 
 Archivo.o: Archivo.cpp Archivo.hpp
 	g++ $(FLAGS) -c Archivo.cpp -o Archivo.o
@@ -11,16 +11,16 @@ Instruccion.o: Instruccion.cpp Instruccion.hpp
 	g++ $(FLAGS) -c Instruccion.cpp -o Instruccion.o
 	
 Pipeline.o: Pipeline.cpp Pipeline.hpp
-	g++ $(flags) -c Pipeline.cpp -o Pipeline.o
+	g++ $(FLAGS) -c Pipeline.cpp -o Pipeline.o
 
-If.o: If.cpp If.hpp
-	g++ $(flags) -c If.cpp -o If.o
+PasoIf.o: PasoIf.cpp PasoIf.hpp
+	g++ $(FLAGS) -c PasoIf.cpp -o PasoIf.o
 
 estado.o: estado.cpp estado.hpp
-	g++ $(flags) -c estado.cpp -o estado.o
+	g++ $(FLAGS) -c estado.cpp -o estado.o
 
 LineaControl.o: LineaControl.cpp LineaControl.hpp
-	g++ $(flags) -c LineaControl.cpp -o LineaControl.o
+	g++ $(FLAGS) -c LineaControl.cpp -o LineaControl.o
 
 TipoInmediato.o: TipoInmediato.cpp TipoInmediato.hpp
 	g++ $(FLAGS) -c TipoInmediato.cpp -o TipoInmediato.o
